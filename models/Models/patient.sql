@@ -1,1 +1,0 @@
-select * from {{ bigquery-public-data.hospital_raw.patient('hospital_raw', 'patient') }}
