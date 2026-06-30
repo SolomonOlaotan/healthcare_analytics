@@ -1,1 +1,1 @@
-select * from {{ source('hospital_raw', 'patient') }}
+select * from {{ bigquery-public-data.hospital_raw.patient('hospital_raw', 'patient') }}
