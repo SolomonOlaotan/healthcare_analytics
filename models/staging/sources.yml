@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: dbt_sidowu
+    database: project-trial-500100
+    schema: dbt_sidowu
+
+    tables:
+      - name: patient
+      - name: encounter
+      - name: payers
+      - name: procedures
