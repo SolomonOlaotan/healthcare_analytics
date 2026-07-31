@@ -10,3 +10,4 @@ sources:
       - name: encounter
       - name: payers
       - name: procedures
+      - name: organizations
