@@ -20,7 +20,7 @@ select
     ethnicity,
     CASE gender
         WHEN 'M' THEN 'Male'
-        WHEN '' THEN 'Female'
+        WHEN 'F' THEN 'Female'
     END AS gender,
     birthplace,
     address,
