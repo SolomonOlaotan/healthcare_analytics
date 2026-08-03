@@ -1,16 +1,16 @@
 select 
     id AS encounter_id,
-    start,
-    stop,
+    start AS start_time,
+    stop AS stop_time,
     patient AS patient_id,
-    organisation,
+    organisation AS organisation_id,
     payer AS payer_id,
     encounterClass AS encounterType,
-    code,
-    description,
+    code AS encounter_code,
+    description AS encounter_description,
     base_encounter_cost AS base_cost,
     total_claim_cost AS total_cost,
     payer_coverage,
-    reasonCode,
+    reasonCode AS reason_code,
     reasonDescription
 from {{ source('dbt_sidowu', 'encounter') }}
