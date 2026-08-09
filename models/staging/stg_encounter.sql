@@ -1,7 +1,7 @@
 select 
     id AS encounter_id,
-    start AS start_time,
-    stop AS stop_time,
+    safe_cast(start AS timestamp) AS start_time,
+    safe_cast(stop as timestamp) AS stop_time,
     patient AS patient_id,
     organisation AS organisation_id,
     payer AS payer_id,
