@@ -13,10 +13,9 @@ select
     encounter_day_of_week,
     encounterType,
     CASE
-        WHEN encounter_duration_minutes <= 30 THEN 'short'
-        WHEN encounter_duration_minutes <= 120 THEN 'medium'
-        ELSE 'long'
-    END AS encounter_length_category,
+        WHEN encounter_duration_minutes >=1440 THEN true
+        ELSE false
+    END AS is_admitted,
     encounter_code,
     encounter_description,
     base_cost,

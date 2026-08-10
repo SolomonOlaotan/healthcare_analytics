@@ -13,8 +13,9 @@ encounter_agg AS (
         count(distinct encounter_id) AS number_encounter,
         round(sum(total_cost), 2) AS total_cost,
         round(sum(out_of_pocket_cost), 2) AS total_out_of_pocket_cost,
-        min(start_time) AS first_encounter_date,
-        max(start_time) AS last_encounter_date
+        date(min(start_time)) AS first_encounter_date,
+        date(max(start_time)) AS last_encounter_date,
+        sum(encounter_duration_minutes) AS encounter_duration_minutes
 
     from encounter
         group by patient_id
@@ -36,6 +37,7 @@ select
     d.age_band,
     coalesce(e.number_encounter, 0) AS number_encounter,
     coalesce(pr.number_procedures, 0) as number_procedures,
+    encounter_duration_minutes,
     coalesce(e.total_cost, 0) AS total_cost,
     coalesce(e.total_out_of_pocket_cost, 0) AS total_out_of_pocket_cost,
     coalesce(pr.total_procedure_cost, 0) AS total_procedure_cost,
